@@ -16,7 +16,10 @@ use App\Http\Controllers\FrontEndController;
 Route::get('/','FrontEndController@homePage');
 Route::get('reg','FrontEndController@Register');
 Route::get('login','FrontEndController@Login');
-Route::post('reg-user',[FrontEndController::class,'registerUser'])->name('reg-user');
+Route::post('reg-user',[FrontEndController::class,'registerUser'])->name('reg1-user');
+Route::post('login-user',[FrontEndController::class,'loginUser'])->name('login1-user');
+Route::get('/dashboard',[FrontEndController::class,'dashboard']);
+Route::get('/logout',[FrontEndController::class,'logout']);
 
 // Route::get('/', function () {
 //     return view('welcome');

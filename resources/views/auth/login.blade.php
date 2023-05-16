@@ -13,15 +13,24 @@
             <div class="col-md-4 offset-4" style="margin-top:50px;">
             <h3 class="text-success">Login</h3>
             <hr>
-            <form>
+            <form action="{{route('login1-user')}}" method="post">
+                @if(Session::has('fail'))
+                <div class="alert alert-danger">{{Session::get('fail')}}</div>
+                @endif
+                <!-- @if(Session::has('danger'))
+                <div class="alert alert-danger">{{Session::get('danger')}}</div>
+                @endif -->
+                @csrf
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" placeholder="enter Email" name="email" value="">
+                <input type="text" class="form-control" placeholder="enter Email" name="email" value="{{old('email')}}">
+                <span class="text-danger">@error('email'){{$message}} @enderror</span>
             </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="enter Password" name="password" value="">
+                <input type="password" class="form-control" placeholder="enter Password" name="password" value="{{old('password')}}">
+                <span class="text-danger">@error('password'){{$message}} @enderror</span>
             </div>
             <hr>
             <div class="form-group">
